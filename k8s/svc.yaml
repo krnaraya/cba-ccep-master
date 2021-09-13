@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cba-cppe
+  labels:
+    app: cba-cppe
+    app.kubernetes.io/instance: cba-cppe
+    app.kubernetes.io/name: cba-cppe
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: cba-cppe
+  type: ClusterIP

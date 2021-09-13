@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: cba-cppe
+  annotations: 
+    haproxy.router.openshift.io/disable_cookies: "true"
+    haproxy.router.openshift.io/balance: "roundrobin"
+    haproxy.router.openshift.io/timeout: 60s
+spec:
+  to:
+    kind: Service
+    name: cba-cppe
+    weight: 100
+  tls:
+    termination: edge   
+    insecureEdgeTerminationPolicy: Redirect

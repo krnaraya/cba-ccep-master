@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cba-ccep-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cba-cppe
+  template:
+    metadata:
+      labels:
+        app: cba-cppe
+    spec:
+      containers:
+      - name: myapp
+        envFrom:
+          - configMapRef:
+             name: cba-cppe
+          - secretRef:
+             name: cba-ccep
+        image: quay.io/leoliu2011/cba-cppe:latest
+        env:
+          - name: MAX_REQ_TIMEOUT
+            value: "500000"
+        resources: {}
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        restartPolicy: Always

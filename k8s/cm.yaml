@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cba-cppe
+data:
+  ACS_SERVER_URL: 'central-stackrox.development-cluster-1-d0888eb2f890b866b1dc8b198c11d221-0000.au-syd.containers.appdomain.cloud'
+  ACS_API_VERSION: 'v1'
+  SCC_EXCHANGE_PROTOCOL_URL: https://us.compliance.cloud.ibm.com/exchangeprotocol/v1/scope/f397d794-0f84-44a3-81e8-05cd796eec96/results?account_id=580b2905826e4ee4ac2c123d34253ef6&result_type=VALIDATION
